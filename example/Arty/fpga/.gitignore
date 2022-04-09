@@ -1,0 +1,5 @@
+*.log
+*.jou
+*webtalk*
+fpga/*.tcl
+fpga/rev

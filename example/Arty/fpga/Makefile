@@ -21,5 +21,10 @@ $(SUBDIRS_CLEAN):
 clean: $(SUBDIRS_CLEAN)
 	-rm -rf $(TARGETS)
 
-program:
-	#djtgcfg prog -d Atlys --index 0 --file fpga/fpga.bit
+# note: if vivado HW manager is open, djtgcfg fails with "ERROR: failed to initialize scan chain"
+# djtgcfg prog -d Arty --index 0 --file fpga/fpga.bit
+program_bit: 
+	cd $(SUBDIRS) && make program_bit
+
+program_mcs:
+	cd $(SUBDIRS) && make program_flash

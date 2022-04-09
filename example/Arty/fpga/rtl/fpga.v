@@ -269,6 +269,21 @@ core_inst (
     .uart_txd(uart_txd)
 );
 
+ila_fpga_top_level #() inst_ila_fpga_top_level (
+  .clk (clk_ibufg),
+  .probe0 (phy_ref_clk), //! output wire   
+  .probe1 (phy_rx_clk),  //! input  wire   
+  .probe2 (phy_rxd),     //! input  wire [3:0] 
+  .probe3 (phy_rx_dv),   //! input  wire   
+  .probe4 (phy_rx_er),   //! input  wire   
+  .probe5 (phy_tx_clk),  //! input  wire   
+  .probe6 (phy_txd),     //! output wire [3:0] 
+  .probe7 (phy_tx_en),   //! output wire   
+  .probe8 (phy_col),     //! input  wire   
+  .probe9 (phy_crs),     //! input  wire   
+  .probe10(phy_reset_n)  //! output wire   
+);
+
 endmodule
 
 `resetall
